@@ -29,16 +29,16 @@ public class Main {
                                 try {
                                 System.out.println("Add Bread:");
                                 System.out.print("ID : ");
-                                String id_bread = sc.next();
+                                String newId = sc.next();
                                 System.out.print("Name : ");
-                                String name_bread = sc.next();
+                                String newName = sc.next();
                                 System.out.print("Type : ");
-                                String type_bread = sc.next();
+                                String newType = sc.next();
                                 System.out.print("Weight : ");
-                                float weight_bread = sc.nextFloat();
+                                float newWeight = sc.nextFloat();
                                 System.out.print("Price : ");
-                                float price_bread = sc.nextFloat();
-                                Bread obj = new Bread(id_bread, name_bread, type_bread, weight_bread, price_bread);
+                                float newPrice = sc.nextFloat();
+                                Bread obj = new Bread(newId, newName, newType, newWeight, newPrice);
                                 bread.createProduct(obj);
                                 System.out.println("Add successfull");
 
@@ -65,8 +65,71 @@ public class Main {
                     break;
                 }
 
-                case 2:
+                case 2:{
+                    int option2;
+                    do{
+                        option2 = updateMenu();
+                        switch (option2) {
+                            case 1:
+                                try {
+                                    System.out.print("Nhập mã hoặc tên sản phẩm cần sửa: ");
+                                    String idOrName = sc.nextLine();
+                                    Bread breadToUpdate = bread.findByIdOrName(idOrName);
+                                    
+                                    if (breadToUpdate == null) {
+                                        System.out.println("Không tìm thấy sản phẩm cần sửa.");
+                                        return;
+                                    }
+                                    System.out.println(breadToUpdate.toString()); // hiển thị thông tin sản phẩm 
+                                    System.out.print("Nhập tên mới cho sản phẩm (nhấn Enter nếu không muốn thay đổi): ");
+                                    String newName = sc.nextLine();
+                                    if (!newName.isEmpty()) {
+                                        breadToUpdate.setName(newName);
+                                    }
+                                    System.out.print("Nhập Type mới cho sản phẩm (nhấn Enter nếu không muốn thay đổi): ");
+                                    String newType = sc.nextLine();
+                                    if (!newType.isEmpty()) {
+                                        breadToUpdate.setType(newType);
+                                    }
+                                    System.out.print("Nhập giá mới cho sản phẩm (nhập 0 nếu không muốn thay đổi): ");
+                                    float newWeight = sc.nextFloat();
+                                    sc.nextLine(); // Đọc bỏ dòng newline
+                                    if (newWeight > 0) {
+                                        breadToUpdate.setWeight(newWeight);
+                                    }
+                                    System.out.print("Nhập giá mới cho sản phẩm (nhập 0 nếu không muốn thay đổi): ");
+                                    float newPrice = sc.nextFloat();
+                                    sc.nextLine(); // Đọc bỏ dòng newline
+                                    if (newPrice > 0) {
+                                        breadToUpdate.setPrice(newPrice);
+                                    }
+
+                                    // Cập nhật thông tin sản phẩm
+                                    bread.editProduct(breadToUpdate);
+
+                                } catch (Exception e) {
+                                    System.out.println("Error:" + e.getMessage());
+                                }
+
+                            break;
+
+                            case 2:
+                                System.out.println("Add Cake:");
+                                break;
+                            case 3:
+                                System.out.println("Add Coffee:");
+
+                            case 4:
+                                System.out.println("Closing!");
+                                System.out.println("---------------------------------------");
+                                break;
+                            default:
+                                System.out.println("Invaild Choice");
+                        }
+                    }while (option2 != 4);
+                }
                     break;
+                    
                 case 3: {
                     int option2;
                     do {
@@ -114,17 +177,17 @@ public class Main {
                         switch (option2) {
                             case 1:
                                 try {
-                                System.out.println("Search Bread by ID or Name:");
-                                String idOrName = sc.next();
-                                Bread search_bread = bread.findByIdOrName(idOrName);
-                                if (search_bread != null) {
-                                    System.out.println("Found bread: " + search_bread);
-                                } else {
-                                    System.out.println("Bread not found");
-                                }
-                            } catch (Exception e) {
-                                System.out.println("Error:" + e.getMessage());
-                            }
+                                    System.out.println("Search Bread by ID or Name:");
+                                    String idOrName = sc.next();
+                                    Bread search_bread = bread.findByIdOrName(idOrName);
+                                        if (search_bread != null) {
+                                            System.out.println("Found bread: " + search_bread);
+                                        } else {
+                                            System.out.println("Bread not found");
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println("Error:" + e.getMessage());
+                                    }
 
                             break;
                             case 2:
@@ -133,10 +196,14 @@ public class Main {
                             case 3:
                                 System.out.print("Search Coffee by code: ");
                                 break;
+                            case 4:
+                                System.out.println("Closing!");
+                                System.out.println("---------------------------------------");
+                                break;
                             default:
                                 System.out.println("Invaild Choice");
                         }
-                    } while (option2 != 3);
+                    } while (option2 != 4);
                     break;
                 }
 
@@ -198,7 +265,7 @@ public class Main {
     }
 
     public static int addMenu() {
-        // Print Menu	
+        // Add Menu	
         System.out.println("Add what?");
         System.out.println("1. Add Bread");
         System.out.println("2. Add Cake");
@@ -212,7 +279,7 @@ public class Main {
     }
 
     public static int displayMenu() {
-        // Print Menu
+        // Display Menu
         System.out.println("Display what?");
         System.out.println("1. Display Bread");
         System.out.println("2. Display Cake");
@@ -227,12 +294,26 @@ public class Main {
     }
 
     public static int searchMenu() {
-        // Print Menu
+        // Search Menu
 
         System.out.println("Search what?");
         System.out.println("1. Search Bread");
         System.out.println("2. Search Cake");
         System.out.println("3. Search Coffee");
+        System.out.println("4. Exit");
+        System.out.println("---------------------------------------");
+        int option = sc.nextInt();
+        sc.nextLine();
+        return option;
+    }
+    
+    public static int updateMenu() {
+        // Update Menu
+
+        System.out.println("Edit what?");
+        System.out.println("1. Edit Bread");
+        System.out.println("2. Edit Cake");
+        System.out.println("3. Edit Coffee");
         System.out.println("4. Exit");
         System.out.println("---------------------------------------");
         int option = sc.nextInt();
