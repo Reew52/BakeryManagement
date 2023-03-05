@@ -53,6 +53,16 @@ public class BakeryProductFactory<Product> implements ProductFactory<Product> {
                 if (bread.getId().equals(idOrName) || bread.getName().equals(idOrName)) {
                     return element;
                 }
+            }else if (element instanceof Cake) {
+                Cake cake = (Cake) element;
+                if (cake.getId().equals(idOrName) || cake.getName().equals(idOrName)) {
+                    return element;
+                }
+            } else if (element instanceof Coffee) {
+                Coffee coffee = (Coffee) element;
+                if (coffee.getId().equals(idOrName) || coffee.getName().equals(idOrName)) {
+                    return element;
+                }
             }
         }
         return null;

@@ -33,6 +33,11 @@ public class Cake extends Product {
     public void setSize(String size) {
         this.size = size;
     }
-    
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Cake{" + "flavor=" + flavor + ", size=" + size + '}';
+    }
 }
 

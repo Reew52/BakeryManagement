@@ -13,7 +13,7 @@ public class Coffee extends Product implements Drink {
     private String roastType;
     private float volume;
 
-    public Coffee(String id, String name, float price, float volume) {
+    public Coffee(String id, String name, float price, String roastType,float volume) {
         super(id, name, price);
         this.roastType = roastType;
         this.volume = volume;
@@ -36,4 +36,12 @@ public class Coffee extends Product implements Drink {
     public void setVolume(float volume) {
         this.volume = volume;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()
+                + "Coffee{" + "roastType=" + roastType + ", volume=" + volume + '}';
+    }
+    
+    
 }
