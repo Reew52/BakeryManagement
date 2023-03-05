@@ -13,9 +13,9 @@ public class Main {
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        ArrayList<Bread> elements = new ArrayList<>();
-        BakeryProductFactory<Bread> bread = new BakeryProductFactory<>(elements);
-        elements = breadList(elements);
+        ArrayList<Bread> bread_elements = new ArrayList<>();
+        BakeryProductFactory<Bread> bread = new BakeryProductFactory<>(bread_elements);
+        bread_elements = breadList(bread_elements);
         int option;
         do {
             option = printMenu();
@@ -137,15 +137,17 @@ public class Main {
                         switch (option2) {
                             case 1:
                                 try {
-                                System.out.print("Delete Bread:");
-                                String id_delete = sc.next();
-                                Bread find_bread = bread.findByIdOrName(id_delete);
-                                if (find_bread == null) {
+                                // xóa sản phẩm theo id hoặc tên sản phẩm
+                                System.out.print("Nhập vào id hoặc tên sản phẩm cần xóa:");
+                                String idOrName = sc.next();
+                                Bread breadToDelete = bread.findByIdOrName(idOrName);
+                                if (breadToDelete == null) {
                                     System.out.println("Not exist the bread");
                                 } else {
-                                    bread.deleteProduct(find_bread);
+                                    System.out.println("Thông tin Bread thực hiện xóa: ");
+                                    System.out.println(breadToDelete.toString()); // hiển thị thông tin sản phẩm
+                                    bread.deleteProduct(breadToDelete);
                                     System.out.println("Remove the bread, successfully");
-
                                 }
                             } catch (Exception e) {
                                 System.out.println("Error:" + e.getMessage());
@@ -177,11 +179,13 @@ public class Main {
                         switch (option2) {
                             case 1:
                                 try {
-                                    System.out.println("Search Bread by ID or Name:");
+                                    System.out.print("Search Bread by ID or Name:");
                                     String idOrName = sc.next();
-                                    Bread search_bread = bread.findByIdOrName(idOrName);
-                                        if (search_bread != null) {
-                                            System.out.println("Found bread: " + search_bread);
+                                    Bread breadToSearch  = bread.findByIdOrName(idOrName);
+                                        if (breadToSearch != null) {
+                                            System.out.println("Tìm thấy sản phẩm:");
+                                            System.out.println(breadToSearch);
+                                            System.out.println("-----------------------------------------------------------------");
                                         } else {
                                             System.out.println("Bread not found");
                                         }
@@ -213,9 +217,18 @@ public class Main {
                         option2 = displayMenu();
                         switch (option2) {
                             case 1:
-                                for (int i = 0; i < elements.size(); i++) {
-                                    System.out.println(elements.get(i).toString());
+//                                for (int i = 0; i < elements.size(); i++) {
+//                                    System.out.println(elements.get(i).toString());
+//                                }
+                                try {
+                                    ArrayList<Bread> allBread = bread.getAll(bread_elements);
+                                    for (int i = 0; i < allBread.size(); i++) {
+                                        System.out.println(allBread.get(i).toString());
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Error:" + e.getMessage());
                                 }
+                                
                                 break;
                             case 2:
                                 System.out.print("Display Cake: ");
@@ -265,8 +278,9 @@ public class Main {
     }
 
     public static int addMenu() {
-        // Add Menu	
-        System.out.println("Add what?");
+        // Add Menu
+        System.out.println("-------------------ADD--------------------");
+        System.out.println("Select an option:");
         System.out.println("1. Add Bread");
         System.out.println("2. Add Cake");
         System.out.println("3. Add Coffee");
@@ -280,7 +294,8 @@ public class Main {
 
     public static int displayMenu() {
         // Display Menu
-        System.out.println("Display what?");
+        System.out.println("-------------------Display--------------------");
+        System.out.println("Select an option:");
         System.out.println("1. Display Bread");
         System.out.println("2. Display Cake");
         System.out.println("3. Display Coffee");
@@ -296,7 +311,8 @@ public class Main {
     public static int searchMenu() {
         // Search Menu
 
-        System.out.println("Search what?");
+        System.out.println("-------------------Search--------------------");
+        System.out.println("Select an option:");
         System.out.println("1. Search Bread");
         System.out.println("2. Search Cake");
         System.out.println("3. Search Coffee");
@@ -310,7 +326,8 @@ public class Main {
     public static int updateMenu() {
         // Update Menu
 
-        System.out.println("Edit what?");
+        System.out.println("-------------------Edit--------------------");
+        System.out.println("Select an option:");
         System.out.println("1. Edit Bread");
         System.out.println("2. Edit Cake");
         System.out.println("3. Edit Coffee");
@@ -324,7 +341,8 @@ public class Main {
     public static int deleteMenu() {
         // Print Menu
 
-        System.out.println("Delete what?");
+        System.out.println("-------------------Delete--------------------");
+        System.out.println("Select an option:");
         System.out.println("1. Delete Bread");
         System.out.println("2. Delete Cake");
         System.out.println("3. Delete Coffee");
@@ -335,12 +353,12 @@ public class Main {
         return option;
     }
 
-    public static ArrayList<Bread> breadList(ArrayList<Bread> elements) {
+    public static ArrayList<Bread> breadList(ArrayList<Bread> bread_elements) {
         Bread bread01 = new Bread("B001", "asdas", "asds", 123, 12);
         Bread bread02 = new Bread("B002", "adad", "afd", 234, 11);
-        elements.add(bread01);
-        elements.add(bread02);
-        return elements;
+        bread_elements.add(bread01);
+        bread_elements.add(bread02);
+        return bread_elements;
     }
 
 }

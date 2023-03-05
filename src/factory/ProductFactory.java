@@ -6,11 +6,11 @@ package factory;
 
 import java.util.ArrayList;
 
-public interface ProductFactory<T> {
-    ArrayList<T> getAll(ArrayList<T> elements);
-    void createProduct(T element);
-    void editProduct(T element);
-    void deleteProduct(T element);
-    T findByIdOrName(String idOrName);
+public interface ProductFactory<Product> {
+    ArrayList<Product> getAll(ArrayList<Product> elements);
+    void createProduct(Product element);
+    void editProduct(Product element);
+    void deleteProduct(Product element);
+    Product findByIdOrName(String idOrName);
 }
 

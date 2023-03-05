@@ -14,26 +14,26 @@ import java.util.ArrayList;
  * @author Dell
  */
 
-public class BakeryProductFactory<T> implements ProductFactory<T> {
-    private ArrayList<T> elements;
+public class BakeryProductFactory<Product> implements ProductFactory<Product> {
+    private ArrayList<Product> elements;
 
     
-    public BakeryProductFactory (ArrayList<T> elements){
+    public BakeryProductFactory (ArrayList<Product> elements){
         this.elements=elements;
     }
 
     @Override
-    public ArrayList<T> getAll(ArrayList<T> elements) {
+    public ArrayList<Product> getAll(ArrayList<Product> elements) {
         return elements;
     }
     
     @Override
-    public void createProduct(T element) {
+    public void createProduct(Product element) {
         elements.add(element);
     }
 
     @Override
-    public void editProduct(T element) {
+    public void editProduct(Product element) {
         int index = elements.indexOf(element);
         if (index != -1) {
             elements.set(index, element);
@@ -41,13 +41,13 @@ public class BakeryProductFactory<T> implements ProductFactory<T> {
     }
 
     @Override
-    public void deleteProduct(T element) {
+    public void deleteProduct(Product element) {
         elements.remove(element);
     }
 
     @Override
-    public T findByIdOrName(String idOrName) {
-        for (T element : elements) {
+    public Product findByIdOrName(String idOrName) {
+        for (Product element : elements) {
             if (element instanceof Bread) {
                 Bread bread = (Bread) element;
                 if (bread.getId().equals(idOrName) || bread.getName().equals(idOrName)) {
