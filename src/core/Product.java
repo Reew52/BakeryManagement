@@ -18,6 +18,10 @@ public abstract class Product {
         this.name = name;
         this.price = price;
     }
+    
+    public Product(Product product) {
+        this(product.getId(), product.getName(), product.getPrice());
+    }
 
     public String getId() {
         return id;

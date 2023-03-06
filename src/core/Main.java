@@ -4,6 +4,9 @@
  */
 package core;
 
+import decorator.BreadDecorator;
+import decorator.CakeDecorator;
+import decorator.CoffeeDecorator;
 import factory.BakeryProductFactory;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -28,6 +31,7 @@ public class Main {
         BakeryProductFactory<Coffee> coffee = new BakeryProductFactory<>(coffee_elements);
         coffee_elements = coffeeList(coffee_elements);
         
+        
         int option;
         do {
             option = printMenu();
@@ -42,17 +46,31 @@ public class Main {
                                 try {
                                     System.out.println("Add new Bread:");
                                     System.out.print("ID : ");
-                                    String newId = sc.next();
+                                    String newId = sc.nextLine();
                                     System.out.print("Name : ");
-                                    String newName = sc.next();
+                                    String newName = sc.nextLine();
                                     System.out.print("Type : ");
-                                    String newType = sc.next();
+                                    String newType = sc.nextLine();
                                     System.out.print("Weight : ");
                                     float newWeight = sc.nextFloat();
                                     System.out.print("Price : ");
                                     float newPrice = sc.nextFloat();
+                                    //decorator
+                                    System.out.print("Do you want to add shape? (Y/N) : ");
+                                    String addShape = sc.next(); // ask the customer to enter Y/N to confirm whether they want to add shape information
                                     Bread obj = new Bread(newId, newName, newType, newWeight, newPrice);
-                                    bread.createProduct(obj);
+                                    if(addShape.equalsIgnoreCase("Y")){
+                                        System.out.print("Shape : ");
+                                        String newShape = sc.next();
+                                        BreadDecorator decoratedBread = new BreadDecorator(obj, newShape); // create new BreadDecorator object with new shape information
+                                        System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
+                                        System.out.println("|   ID   |         Name            |   Price    |     Type      |   Weight   |    Shape   |");
+                                        System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
+                                        System.out.println(decoratedBread.toString());
+                                        System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
+                                    } else {
+                                        bread.createProduct(obj);
+                                    }
                                     System.out.println("Add new Bread successfull");
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
@@ -63,17 +81,29 @@ public class Main {
                                 try {
                                     System.out.println("Add new Cake:");
                                     System.out.print("ID : ");
-                                    String newId = sc.next();
+                                    String newId = sc.nextLine();
                                     System.out.print("Name : ");
-                                    String newName = sc.next();
+                                    String newName = sc.nextLine();
                                     System.out.print("Price : ");
                                     float newPrice = sc.nextFloat();
                                     System.out.print("Flavor : ");
                                     String newFlavor = sc.next();
                                     System.out.print("Size : ");
                                     String newSize = sc.next();
-                                    Cake obj = new Cake(newId, newName,newPrice, newFlavor, newSize);
-                                    cake.createProduct(obj);
+                                    //decorator
+                                    System.out.print("Do you want to frost the cake? (Y/N) : ");
+                                    String frostCake = sc.next(); // ask the customer if they want ice cream or not
+                                    Cake obj = new Cake(newId, newName, newPrice, newFlavor, newSize);
+                                    if(frostCake.equalsIgnoreCase("Y")){
+                                        CakeDecorator decoratedCake = new CakeDecorator(obj, true); // create a new CakeDecorator object with icing information true
+                                        System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
+                                        System.out.println("|   ID   |         Name          |     Price     |      Flavor      |    Size    |    Frost    |");
+                                        System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
+                                        System.out.println(decoratedCake.toString());
+                                        System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
+                                    } else {
+                                        cake.createProduct(obj); // if the customer doesn't want the frosting, add the product to the list
+                                    }
                                     System.out.println("Add new Cake successfull");
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
@@ -84,17 +114,31 @@ public class Main {
                                 try {
                                     System.out.println("Add new Coffee:");
                                     System.out.print("ID : ");
-                                    String newId = sc.next();
+                                    String newId = sc.nextLine();
                                     System.out.print("Name : ");
-                                    String newName = sc.next();
+                                    String newName = sc.nextLine();
+                                    System.out.print("Price : ");
+                                    float newPrice = sc.nextFloat();
                                     System.out.print("Roast Type : ");
                                     String newRoastType = sc.next();
                                     System.out.print("Volume : ");
                                     float newVolume = sc.nextFloat();
-                                    System.out.print("Price : ");
-                                    float newPrice = sc.nextFloat();
+                                    //decorator
+                                    System.out.print("Do you want to add flavor to your coffee? (Y/N) : ");
+                                    String addFlavor = sc.next(); // ask user if they want to add flavor to their coffee
                                     Coffee obj = new Coffee(newId, newName, newPrice, newRoastType, newVolume);
-                                    coffee.createProduct(obj);
+                                    if (addFlavor.equalsIgnoreCase("Y")) {
+                                        System.out.print("What flavor do you want to add? : ");
+                                        String flavor = sc.next();
+                                        CoffeeDecorator decoratedCoffee = new CoffeeDecorator(obj, flavor); // create a new CoffeeDecorator object with the user's chosen flavor
+                                        System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
+                                        System.out.println("|   ID    |             Name             |     Price    |   Roast Type  |   Weight   |   Flavor   |");
+                                        System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
+                                        System.out.println(decoratedCoffee.toString());
+                                        System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
+                                    } else {
+                                        coffee.createProduct(obj); // if user doesn't want to add flavor, add the coffee to the list of products
+                                    }
                                     System.out.println("Add new Coffee successfull");
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
@@ -382,7 +426,7 @@ public class Main {
                             case 1:
                                 try {
                                     System.out.print("Search Bread by ID or Name: ");
-                                    String idOrName = sc.next();
+                                    String idOrName = sc.nextLine();
                                     Bread breadToSearch  = bread.findByIdOrName(idOrName);
                                         if (breadToSearch != null) {
                                             System.out.println("Found product: ");
@@ -402,7 +446,7 @@ public class Main {
                             case 2:
                                 try {
                                     System.out.print("Search Cake by ID or Name: ");
-                                    String idOrName = sc.next();
+                                    String idOrName = sc.nextLine();
                                     Cake cakeToSearch  = cake.findByIdOrName(idOrName);
                                         if (cakeToSearch != null) {
                                             System.out.println("Found product: ");
@@ -422,7 +466,7 @@ public class Main {
                             case 3:
                                 try {
                                     System.out.print("Search Coffee by ID or Name: ");
-                                    String idOrName = sc.next();
+                                    String idOrName = sc.nextLine();
                                     Coffee coffeeToSearch  = coffee.findByIdOrName(idOrName);
                                         if (coffeeToSearch != null) {
                                             System.out.println("Found product: ");
