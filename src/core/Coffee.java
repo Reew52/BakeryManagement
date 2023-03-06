@@ -39,8 +39,10 @@ public class Coffee extends Product implements Drink {
 
     @Override
     public String toString() {
-        return super.toString()
-                + "Coffee{" + "roastType=" + roastType + ", volume=" + volume + '}';
+        return super.toString() +
+                "\t " + "     "+ roastType + 
+                "\t " + "    "+ volume + 
+                "    |";
     }
     
     

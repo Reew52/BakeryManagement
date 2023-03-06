@@ -12,7 +12,7 @@ public class Cake extends Product {
     private String flavor;
     private String size;
 
-    public Cake(String id, String name,String flavor, String size, float price) {
+    public Cake(String id, String name, float price ,String flavor, String size) {
         super(id, name, price);
         this.flavor = flavor;
         this.size = size;
@@ -37,7 +37,9 @@ public class Cake extends Product {
     @Override
     public String toString() {
         return super.toString() +
-                "Cake{" + "flavor=" + flavor + ", size=" + size + '}';
+                "\t " + "     "+ flavor + 
+                "\t" + "        "+ size + 
+                "    |";
     }
 }
 

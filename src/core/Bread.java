@@ -33,7 +33,9 @@ public class Bread extends Product {
     @Override
     public String toString() {
         return super.toString() +
-                "Bread{" + "type=" + type + ", weight=" + weight + '}';
+                "\t " + "     "+ type + 
+                "\t " + "    "+ weight + 
+                "    |";
     }
     
     
