@@ -569,15 +569,19 @@ public class Main {
 
     public static int printMenu() {
         // Print Menu
-        System.out.println("------------------------------------- Menu -------------------------------------");
-        System.out.println("Select an option:");
-        System.out.println("1. Add");
-        System.out.println("2. Edit");
-        System.out.println("3. Delete");
-        System.out.println("4. Search");
-        System.out.println("5. Display");
-        System.out.println("6. Exit");
-        System.out.println("-------------------------------------------------------------------------------- ");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("|                       Menu                      |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| Select an option:                               |");
+        System.out.println("|                                                 |");
+        System.out.println("|     1. Add                                      |");
+        System.out.println("|     2. Edit                                     |");
+        System.out.println("|     3. Delete                                   |");
+        System.out.println("|     4. Search                                   |");
+        System.out.println("|     5. Display                                  |");
+        System.out.println("|     6. Exit                                     |");
+        System.out.println("|                                                 |");
+        System.out.println("+-------------------------------------------------+");
 
         int option = sc.nextInt();
         sc.nextLine();
@@ -586,13 +590,17 @@ public class Main {
 
     public static int addMenu() {
         // Add Menu
-        System.out.println("-------------------ADD--------------------");
-        System.out.println("Select an option:");
-        System.out.println("1. Add Bread");
-        System.out.println("2. Add Cake");
-        System.out.println("3. Add Coffee");
-        System.out.println("4. Exit");
-        System.out.println("---------------------------------------");
+        System.out.println("╭────────────────────────╮");
+        System.out.println("│                ADD MENU               │");
+        System.out.println("├───────────────────────-┤");
+        System.out.println("│     Please select an option:          │");
+        System.out.println("│                                       │");
+        System.out.println("│     1. Add Bread                      │");
+        System.out.println("│     2. Add Cake                       │");
+        System.out.println("│     3. Add Coffee                     │");
+        System.out.println("│     4. Exit                           │");
+        System.out.println("│                                       │");
+        System.out.println("╰────────────────────────╯");
 
         int option = sc.nextInt();
         sc.nextLine();
@@ -601,13 +609,17 @@ public class Main {
 
     public static int displayMenu() {
         // Display Menu
-        System.out.println("-------------------Display--------------------");
-        System.out.println("Select an option:");
-        System.out.println("1. Display Bread");
-        System.out.println("2. Display Cake");
-        System.out.println("3. Display Coffee");
-        System.out.println("4. Exit");
-        System.out.println("---------------------------------------");
+        System.out.println("╭───────────────────────╮");
+        System.out.println("│           DISPLAY MENU              │");
+        System.out.println("├──────────────────────┤");
+        System.out.println("│     Please select an option:        │");
+        System.out.println("│                                     │");
+        System.out.println("│     1. Display Bread                │");
+        System.out.println("│     2. Display Cake                 │");
+        System.out.println("│     3. Display Coffee               │");
+        System.out.println("│     4. Exit                         │");
+        System.out.println("│                                     │");
+        System.out.println("╰───────────────────────╯");
 
         int option = sc.nextInt();
         sc.nextLine();
@@ -617,13 +629,17 @@ public class Main {
     public static int searchMenu() {
         // Search Menu
 
-        System.out.println("-------------------Search--------------------");
-        System.out.println("Select an option:");
-        System.out.println("1. Search Bread");
-        System.out.println("2. Search Cake");
-        System.out.println("3. Search Coffee");
-        System.out.println("4. Exit");
-        System.out.println("---------------------------------------");
+        System.out.println("╭───────────────────────╮");
+        System.out.println("│             SEARCH MENU             │");
+        System.out.println("├──────────────────────┤");
+        System.out.println("│     Please select an option:        │");
+        System.out.println("│                                     │");
+        System.out.println("│     1. Search Bread                 │");
+        System.out.println("│     2. Search Cake                  │");
+        System.out.println("│     3. Search Coffee                │");
+        System.out.println("│     4. Exit                         │");
+        System.out.println("│                                     │");
+        System.out.println("╰───────────────────────╯");
         int option = sc.nextInt();
         sc.nextLine();
         return option;
@@ -632,13 +648,17 @@ public class Main {
     public static int updateMenu() {
         // Update Menu
 
-        System.out.println("-------------------Edit--------------------");
-        System.out.println("Select an option:");
-        System.out.println("1. Edit Bread");
-        System.out.println("2. Edit Cake");
-        System.out.println("3. Edit Coffee");
-        System.out.println("4. Exit");
-        System.out.println("---------------------------------------");
+        System.out.println("╭───────────────────────╮");
+        System.out.println("│               EDIT MENU             │");
+        System.out.println("├──────────────────────┤");
+        System.out.println("│     Please select an option:        │");
+        System.out.println("│                                     │");
+        System.out.println("│     1. Edit Bread                   │");
+        System.out.println("│     2. Edit Cake                    │");
+        System.out.println("│     3. Edit Coffee                  │");
+        System.out.println("│     4. Exit                         │");
+        System.out.println("│                                     │");
+        System.out.println("╰───────────────────────╯");
         int option = sc.nextInt();
         sc.nextLine();
         return option;
@@ -654,6 +674,17 @@ public class Main {
         System.out.println("3. Delete Coffee");
         System.out.println("4. Exit");
         System.out.println("---------------------------------------");
+        System.out.println("╭───────────────────────╮");
+        System.out.println("│              DELETE MENU            │");
+        System.out.println("├──────────────────────┤");
+        System.out.println("│     Please select an option:        │");
+        System.out.println("│                                     │");
+        System.out.println("│     1. Delete Bread                 │");
+        System.out.println("│     2. Delete Cake                  │");
+        System.out.println("│     3. Delete Coffee                │");
+        System.out.println("│     4. Exit                         │");
+        System.out.println("│                                     │");
+        System.out.println("╰───────────────────────╯");
         int option = sc.nextInt();
         sc.nextLine();
         return option;
