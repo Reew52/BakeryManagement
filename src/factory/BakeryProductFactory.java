@@ -50,17 +50,17 @@ public class BakeryProductFactory<Product> implements ProductFactory<Product> {
         for (Product element : elements) {
             if (element instanceof Bread) {
                 Bread bread = (Bread) element;
-                if (bread.getId().equals(idOrName) || bread.getName().equals(idOrName)) {
+                if (bread.getId().equalsIgnoreCase(idOrName) || bread.getName().equalsIgnoreCase(idOrName)) {
                     return element;
                 }
             }else if (element instanceof Cake) {
                 Cake cake = (Cake) element;
-                if (cake.getId().equals(idOrName) || cake.getName().equals(idOrName)) {
+                if (cake.getId().equalsIgnoreCase(idOrName) || cake.getName().equalsIgnoreCase(idOrName)) {
                     return element;
                 }
             } else if (element instanceof Coffee) {
                 Coffee coffee = (Coffee) element;
-                if (coffee.getId().equals(idOrName) || coffee.getName().equals(idOrName)) {
+                if (coffee.getId().equalsIgnoreCase(idOrName) || coffee.getName().equalsIgnoreCase(idOrName)) {
                     return element;
                 }
             }

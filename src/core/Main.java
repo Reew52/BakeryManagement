@@ -44,34 +44,42 @@ public class Main {
                             // Bread
                             case 1:
                                 try {
-                                    System.out.println("Add new Bread:");
-                                    System.out.print("ID : ");
-                                    String newId = sc.nextLine();
-                                    System.out.print("Name : ");
-                                    String newName = sc.nextLine();
-                                    System.out.print("Type : ");
-                                    String newType = sc.nextLine();
-                                    System.out.print("Weight : ");
-                                    float newWeight = sc.nextFloat();
-                                    System.out.print("Price : ");
-                                    float newPrice = sc.nextFloat();
-                                    //decorator
-                                    System.out.print("Do you want to add shape? (Y/N) : ");
-                                    String addShape = sc.next(); // ask the customer to enter Y/N to confirm whether they want to add shape information
-                                    Bread obj = new Bread(newId, newName, newType, newWeight, newPrice);
-                                    if(addShape.equalsIgnoreCase("Y")){
-                                        System.out.print("Shape : ");
-                                        String newShape = sc.next();
-                                        BreadDecorator decoratedBread = new BreadDecorator(obj, newShape); // create new BreadDecorator object with new shape information
-                                        System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
-                                        System.out.println("|   ID   |         Name            |   Price    |     Type      |   Weight   |    Shape   |");
-                                        System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
-                                        System.out.println(decoratedBread.toString());
-                                        System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
-                                    } else {
-                                        bread.createProduct(obj);
+                                    while (true) {
+                                        System.out.println("Add new Bread:");
+                                        System.out.print("ID : ");
+                                        String newId = sc.nextLine();
+                                        // check if the ID already exists in the list of breads
+                                        if (bread.findByIdOrName(newId) != null) {
+                                            System.out.println("Error: Bread with ID " + newId + " already exists. Please enter a different ID.");
+                                        } else {
+                                            // if the ID is unique, break out of the loop and continue with the rest of the code
+                                            System.out.print("Name : ");
+                                            String newName = sc.nextLine();
+                                            System.out.print("Type : ");
+                                            String newType = sc.nextLine();
+                                            System.out.print("Weight : ");
+                                            float newWeight = sc.nextFloat();
+                                            System.out.print("Price : ");
+                                            float newPrice = sc.nextFloat();
+                                            //decorator
+                                            System.out.print("Do you want to add shape? (Y/N) : ");
+                                            String addShape = sc.next(); // ask the customer to enter Y/N to confirm whether they want to add shape information
+                                            Bread obj = new Bread(newId, newName, newType, newWeight, newPrice);
+                                            bread.createProduct(obj);
+                                            if(addShape.equalsIgnoreCase("Y")){
+                                                System.out.print("Shape : ");
+                                                String newShape = sc.next();
+                                                BreadDecorator decoratedBread = new BreadDecorator(obj, newShape); // create new BreadDecorator object with new shape information
+                                                System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
+                                                System.out.println("|   ID   |         Name            |   Price    |     Type      |   Weight   |    Shape   |");
+                                                System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
+                                                System.out.println(decoratedBread.toString());
+                                                System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
+                                            }
+                                            System.out.println("Add new Bread successful");
+                                            break;
+                                        }
                                     }
-                                    System.out.println("Add new Bread successfull");
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
                                 }
@@ -79,32 +87,40 @@ public class Main {
                             // Cake
                             case 2:
                                 try {
-                                    System.out.println("Add new Cake:");
-                                    System.out.print("ID : ");
-                                    String newId = sc.nextLine();
-                                    System.out.print("Name : ");
-                                    String newName = sc.nextLine();
-                                    System.out.print("Price : ");
-                                    float newPrice = sc.nextFloat();
-                                    System.out.print("Flavor : ");
-                                    String newFlavor = sc.next();
-                                    System.out.print("Size : ");
-                                    String newSize = sc.next();
-                                    //decorator
-                                    System.out.print("Do you want to frost the cake? (Y/N) : ");
-                                    String frostCake = sc.next(); // ask the customer if they want ice cream or not
-                                    Cake obj = new Cake(newId, newName, newPrice, newFlavor, newSize);
-                                    if(frostCake.equalsIgnoreCase("Y")){
-                                        CakeDecorator decoratedCake = new CakeDecorator(obj, true); // create a new CakeDecorator object with icing information true
-                                        System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
-                                        System.out.println("|   ID   |         Name          |     Price     |      Flavor      |    Size    |    Frost    |");
-                                        System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
-                                        System.out.println(decoratedCake.toString());
-                                        System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
-                                    } else {
-                                        cake.createProduct(obj); // if the customer doesn't want the frosting, add the product to the list
+                                    while (true) {
+                                        System.out.println("Add new Cake:");
+                                        System.out.print("ID : ");
+                                        String newId = sc.nextLine();
+                                        // check if the ID already exists in the list of cakes
+                                        if (bread.findByIdOrName(newId) != null) {
+                                            System.out.println("Error: Cake with ID " + newId + " already exists. Please enter a different ID.");
+                                        } else {
+                                            // if the ID is unique, break out of the loop and continue with the rest of the code
+                                            System.out.print("Name : ");
+                                            String newName = sc.nextLine();
+                                            System.out.print("Price : ");
+                                            float newPrice = sc.nextFloat();
+                                            System.out.print("Flavor : ");
+                                            String newFlavor = sc.next();
+                                            System.out.print("Size : ");
+                                            String newSize = sc.next();
+                                            //decorator
+                                            System.out.print("Do you want to frost the cake? (Y/N) : ");
+                                            String frostCake = sc.next(); // ask the customer if they want ice cream or not
+                                            Cake obj = new Cake(newId, newName, newPrice, newFlavor, newSize);
+                                            cake.createProduct(obj);
+                                            if(frostCake.equalsIgnoreCase("Y")){
+                                                CakeDecorator decoratedCake = new CakeDecorator(obj, true); // create a new CakeDecorator object with icing information true
+                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
+                                                System.out.println("|   ID   |         Name          |     Price     |      Flavor      |    Size    |    Frost    |");
+                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
+                                                System.out.println(decoratedCake.toString());
+                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
+                                            }
+                                            System.out.println("Add new Cake successfull");
+                                            break;
+                                        }
                                     }
-                                    System.out.println("Add new Cake successfull");
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
                                 }
@@ -112,34 +128,42 @@ public class Main {
                             // Coffee
                             case 3:
                                 try {
-                                    System.out.println("Add new Coffee:");
-                                    System.out.print("ID : ");
-                                    String newId = sc.nextLine();
-                                    System.out.print("Name : ");
-                                    String newName = sc.nextLine();
-                                    System.out.print("Price : ");
-                                    float newPrice = sc.nextFloat();
-                                    System.out.print("Roast Type : ");
-                                    String newRoastType = sc.next();
-                                    System.out.print("Volume : ");
-                                    float newVolume = sc.nextFloat();
-                                    //decorator
-                                    System.out.print("Do you want to add flavor to your coffee? (Y/N) : ");
-                                    String addFlavor = sc.next(); // ask user if they want to add flavor to their coffee
-                                    Coffee obj = new Coffee(newId, newName, newPrice, newRoastType, newVolume);
-                                    if (addFlavor.equalsIgnoreCase("Y")) {
-                                        System.out.print("What flavor do you want to add? : ");
-                                        String flavor = sc.next();
-                                        CoffeeDecorator decoratedCoffee = new CoffeeDecorator(obj, flavor); // create a new CoffeeDecorator object with the user's chosen flavor
-                                        System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
-                                        System.out.println("|   ID    |             Name             |     Price    |   Roast Type  |   Weight   |   Flavor   |");
-                                        System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
-                                        System.out.println(decoratedCoffee.toString());
-                                        System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
-                                    } else {
-                                        coffee.createProduct(obj); // if user doesn't want to add flavor, add the coffee to the list of products
+                                    while (true) {
+                                        System.out.println("Add new Coffee:");
+                                        System.out.print("ID : ");
+                                        String newId = sc.nextLine();
+                                        // check if the ID already exists in the list of coffees
+                                        if (bread.findByIdOrName(newId) != null) {
+                                            System.out.println("Error: Coffee with ID " + newId + " already exists. Please enter a different ID.");
+                                        } else {
+                                            // if the ID is unique, break out of the loop and continue with the rest of the code                                                      XZ
+                                            System.out.print("Name : ");
+                                            String newName = sc.nextLine();
+                                            System.out.print("Price : ");
+                                            float newPrice = sc.nextFloat();
+                                            System.out.print("Roast Type : ");
+                                            String newRoastType = sc.next();
+                                            System.out.print("Volume : ");
+                                            float newVolume = sc.nextFloat();
+                                            //decorator
+                                            System.out.print("Do you want to add flavor to your coffee? (Y/N) : ");
+                                            String addFlavor = sc.next(); // ask user if they want to add flavor to their coffee
+                                            Coffee obj = new Coffee(newId, newName, newPrice, newRoastType, newVolume);
+                                            coffee.createProduct(obj);
+                                            if (addFlavor.equalsIgnoreCase("Y")) {
+                                                System.out.print("What flavor do you want to add? : ");
+                                                String flavor = sc.next();
+                                                CoffeeDecorator decoratedCoffee = new CoffeeDecorator(obj, flavor); // create a new CoffeeDecorator object with the user's chosen flavor
+                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
+                                                System.out.println("|   ID    |             Name             |     Price    |   Roast Type  |   Weight   |   Flavor   |");
+                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
+                                                System.out.println(decoratedCoffee.toString());
+                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
+                                            }
+                                            System.out.println("Add new Coffee successfull");
+                                            break;
+                                        }
                                     }
-                                    System.out.println("Add new Coffee successfull");
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
                                 }
@@ -352,8 +376,15 @@ public class Main {
                                             System.out.println("+--------+-------------------------+------------+---------------+------------+");
                                             System.out.println(breadToDelete.toString()); // display this product information
                                             System.out.println("+--------+-------------------------+------------+---------------+------------+");
-                                            bread.deleteProduct(breadToDelete);
-                                            System.out.println("Remove the bread, successfully");
+                                            // Ask for confirmation before deleting
+                                            System.out.print("Are you sure you want to delete this bread? (Y/N): ");
+                                            String confirmation = sc.next();
+                                            if (confirmation.equalsIgnoreCase("Y")) {
+                                                bread.deleteProduct(breadToDelete);
+                                                System.out.println("Remove the bread, successfully");
+                                            } else {
+                                                System.out.println("Deletion canceled");
+                                            }
                                         }
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
@@ -375,8 +406,15 @@ public class Main {
                                             System.out.println("+--------+-----------------------+---------------+------------------+------------+");
                                             System.out.println(cakeToDelete.toString()); // display this product information
                                             System.out.println("+--------+-----------------------+---------------+------------------+------------+");
-                                            cake.deleteProduct(cakeToDelete);
-                                            System.out.println("Remove the cake, successfully");
+                                            // Ask for confirmation before deleting
+                                            System.out.print("Are you sure you want to delete this cake? (Y/N): ");
+                                            String confirmation = sc.next();
+                                            if (confirmation.equalsIgnoreCase("Y")) {
+                                                cake.deleteProduct(cakeToDelete);
+                                                System.out.println("Remove the cake, successfully");
+                                            } else {
+                                                System.out.println("Deletion canceled");
+                                            }
                                         }
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
@@ -398,8 +436,15 @@ public class Main {
                                             System.out.println("+---------+------------------------------+--------------+---------------+------------+");
                                             System.out.println(coffeeToDelete.toString()); // display this product information
                                             System.out.println("+---------+------------------------------+--------------+---------------+------------+");
-                                            coffee.deleteProduct(coffeeToDelete);
-                                            System.out.println("Remove the coffee, successfully");
+                                            // Ask for confirmation before deleting
+                                            System.out.print("Are you sure you want to delete this coffee? (Y/N): ");
+                                            String confirmation = sc.next();
+                                            if (confirmation.equalsIgnoreCase("Y")) {
+                                                coffee.deleteProduct(coffeeToDelete);
+                                                System.out.println("Remove the coffee, successfully");
+                                            } else {
+                                                System.out.println("Deletion canceled");
+                                            }
                                         }
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
@@ -456,7 +501,7 @@ public class Main {
                                             System.out.println(cakeToSearch);
                                             System.out.println("+--------+-----------------------+---------------+------------------+------------+");
                                         } else {
-                                            System.out.println("Bread not found");
+                                            System.out.println("Cake not found");
                                         }
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
@@ -476,7 +521,7 @@ public class Main {
                                             System.out.println(coffeeToSearch);
                                            System.out.println("+---------+------------------------------+--------------+---------------+------------+");
                                         } else {
-                                            System.out.println("Bread not found");
+                                            System.out.println("Coffee not found");
                                         }
                                 } catch (Exception e) {
                                     System.out.println("Error:" + e.getMessage());
@@ -574,11 +619,11 @@ public class Main {
         System.out.println("+-------------------------------------------------+");
         System.out.println("| Select an option:                               |");
         System.out.println("|                                                 |");
-        System.out.println("|     1. Add                                      |");
-        System.out.println("|     2. Edit                                     |");
-        System.out.println("|     3. Delete                                   |");
-        System.out.println("|     4. Search                                   |");
-        System.out.println("|     5. Display                                  |");
+        System.out.println("|     1. Add New Product                          |");
+        System.out.println("|     2. Edit Product Information                 |");
+        System.out.println("|     3. Delete Product                           |");
+        System.out.println("|     4. Search Product Information               |");
+        System.out.println("|     5. Display Product Information              |");
         System.out.println("|     6. Exit                                     |");
         System.out.println("|                                                 |");
         System.out.println("+-------------------------------------------------+");
@@ -666,14 +711,6 @@ public class Main {
 
     public static int deleteMenu() {
         // Print Menu
-
-        System.out.println("-------------------Delete--------------------");
-        System.out.println("Select an option:");
-        System.out.println("1. Delete Bread");
-        System.out.println("2. Delete Cake");
-        System.out.println("3. Delete Coffee");
-        System.out.println("4. Exit");
-        System.out.println("---------------------------------------");
         System.out.println("╭───────────────────────╮");
         System.out.println("│              DELETE MENU            │");
         System.out.println("├──────────────────────┤");
