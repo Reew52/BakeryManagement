@@ -6,10 +6,6 @@ package decorator;
 
 import core.Product;
 
-/**
- *
- * @author Dell
- */
 public abstract class ProductDecorator extends Product {
     protected Product product;
 

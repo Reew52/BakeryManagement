@@ -4,10 +4,6 @@
  */
 package core;
 
-/**
- *
- * @author Dell
- */
 public interface Drink {
     float getVolume();
     void setVolume(float volume);

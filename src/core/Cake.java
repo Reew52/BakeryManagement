@@ -4,10 +4,6 @@
  */
 package core;
 
-/**
- *
- * @author Dell
- */
 public class Cake extends Product {
     private String flavor;
     private String size;

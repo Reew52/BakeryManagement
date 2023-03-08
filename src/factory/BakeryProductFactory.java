@@ -9,11 +9,6 @@ import core.Cake;
 import core.Coffee;
 import java.util.ArrayList;
 
-/**
- *
- * @author Dell
- */
-
 public class BakeryProductFactory<Product> implements ProductFactory<Product> {
     private ArrayList<Product> elements;
 

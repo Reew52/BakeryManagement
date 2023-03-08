@@ -53,6 +53,4 @@ public abstract class Product {
                 "  |  " + name + 
                 "\t\t" + price;
     }
-    
-    
 }

@@ -43,7 +43,5 @@ public class Coffee extends Product implements Drink {
                 "\t " + "     "+ roastType + 
                 "\t " + "    "+ volume + 
                 "    |";
-    }
-    
-    
+    }  
 }

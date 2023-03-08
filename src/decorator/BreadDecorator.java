@@ -6,10 +6,6 @@ package decorator;
 
 import core.Product;
 
-/**
- *
- * @author Dell
- */
 public class BreadDecorator extends ProductDecorator {
     private String shape;
 

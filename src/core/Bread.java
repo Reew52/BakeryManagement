@@ -37,6 +37,4 @@ public class Bread extends Product {
                 "\t " + "    "+ weight + 
                 "    |";
     }
-    
-    
 }

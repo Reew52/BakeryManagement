@@ -6,10 +6,6 @@ package decorator;
 
 import core.Product;
 
-/**
- *
- * @author Dell
- */
 public class CoffeeDecorator extends ProductDecorator {
     private String flavor;
 
