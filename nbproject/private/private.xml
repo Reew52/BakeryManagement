@@ -4,15 +4,6 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/BakeryManagement/src/core/Bread.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/BakeryManagement/src/core/Product.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/BakeryManagement/src/core/Coffee.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/BakeryManagement/src/decorator/CoffeeDecorator.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/BakeryManagement/src/decorator/CakeDecorator.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/BakeryManagement/src/factory/BakeryProductFactory.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/BakeryManagement/src/decorator/ProductDecorator.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/BakeryManagement/src/factory/ProductFactory.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/BakeryManagement/src/core/Main.java</file>
-            <file>file:/C:/Users/Dell/OneDrive/Documents/NetBeansProjects/BakeryManagement/src/decorator/BreadDecorator.java</file>
         </group>
     </open-files>
 </project-private>
