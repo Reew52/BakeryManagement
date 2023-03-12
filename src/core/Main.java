@@ -35,6 +35,7 @@ public class Main {
 
         boolean loggedIn = false;
         while (!loggedIn) {
+            System.out.println("=============== Login ==============");
             System.out.print("Enter username: ");
             String username = sc.next();
 
