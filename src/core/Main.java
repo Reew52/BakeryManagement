@@ -32,6 +32,7 @@ public class Main {
         ArrayList<Coffee> coffee_elements = new ArrayList<>();
         BakeryProductFactory<Coffee> coffee = new BakeryProductFactory<>(coffee_elements);
         coffee_elements = coffeeList(coffee_elements);
+
         boolean loggedIn = false;
         while (!loggedIn) {
             System.out.print("Enter username: ");
@@ -39,6 +40,8 @@ public class Main {
 
             System.out.print("Enter password: ");
             String password = sc.next();
+            
+            boolean invalidPassword  = false; // Add this variable to check password match
 
             try {
                 File file = new File("login.txt");
@@ -472,6 +475,7 @@ public class Main {
                                             // Exit
                                             case 4:
                                                 System.out.println("Closing!");
+                                                System.out.println("---------------------------------------");
                                                 break;
                                             default:
                                                 System.out.println("Invaild Choice");
@@ -628,11 +632,17 @@ public class Main {
                         } while (option != 6);
                         sc.close();
                         break;
+                    } else if (tokens[0].equals(username)) { // if username is correct but password is wrong
+                        invalidPassword = true;
                     }
                 }
 
                 if (!loggedIn) {
-                    System.out.println("Invalid username or password. Please try again.");
+                    if (invalidPassword) {
+                        System.out.println("Invalid password. Please try again.");
+                    } else {
+                        System.out.println("Invalid username or password. Please try again.");
+                    }
                 }
 
             } catch (FileNotFoundException e) {
@@ -786,5 +796,5 @@ public class Main {
         coffee_elements.add(guatemalanLightRoast);
         return coffee_elements;
     }
-   
+
 }
