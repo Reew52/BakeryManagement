@@ -41,8 +41,8 @@ public class Main {
 
             System.out.print("Enter password: ");
             String password = sc.next();
-            
-            boolean invalidPassword  = false; // Add this variable to check password match
+
+            boolean invalidPassword = false; // Add this variable to check password match
 
             try {
                 File file = new File("login.txt");
