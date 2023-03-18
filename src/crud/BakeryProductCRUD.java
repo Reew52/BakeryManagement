@@ -23,11 +23,6 @@ public class BakeryProductCRUD<Product> implements IProductCRUD<Product> {
         }
         return (BakeryProductCRUD<Product>) instance;
     }
-
-    @Override
-    public ArrayList<Product> getAll(ArrayList<Product> elements) {
-        return elements;
-    }
     
     @Override
     public void createProduct(Product element) {

@@ -7,7 +7,6 @@ package crud;
 import java.util.ArrayList;
 
 public interface IProductCRUD<Product> {
-    ArrayList<Product> getAll(ArrayList<Product> elements);
     void createProduct(Product element);
     void editProduct(Product element);
     void deleteProduct(Product element);
