@@ -9,7 +9,7 @@ import core.Cake;
 import core.Coffee;
 import java.util.ArrayList;
 
-public class BakeryProductCRUD<Product> implements ProductCRUD<Product> {
+public class BakeryProductCRUD<Product> implements IProductCRUD<Product> {
     private ArrayList<Product> elements;
 
     

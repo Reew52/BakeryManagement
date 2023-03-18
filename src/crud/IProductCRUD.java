@@ -6,7 +6,7 @@ package crud;
 
 import java.util.ArrayList;
 
-public interface ProductCRUD<Product> {
+public interface IProductCRUD<Product> {
     ArrayList<Product> getAll(ArrayList<Product> elements);
     void createProduct(Product element);
     void editProduct(Product element);

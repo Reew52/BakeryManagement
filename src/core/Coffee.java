@@ -9,7 +9,7 @@ package core;
  * @author Dell
  */
 
-public class Coffee extends Product implements Drink {
+public class Coffee extends Product implements IDrink {
     private String roastType;
     private float volume;
 

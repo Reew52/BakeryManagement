@@ -4,7 +4,7 @@
  */
 package core;
 
-public interface Drink {
+public interface IDrink {
     float getVolume();
     void setVolume(float volume);
 }
