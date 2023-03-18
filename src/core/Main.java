@@ -7,7 +7,7 @@ package core;
 import decorator.BreadDecorator;
 import decorator.CakeDecorator;
 import decorator.CoffeeDecorator;
-import factory.BakeryProductFactory;
+import crud.BakeryProductCRUD;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -20,17 +20,17 @@ public class Main {
     public static void main(String[] args) {
         //Bread
         ArrayList<Bread> bread_elements = new ArrayList<>();
-        BakeryProductFactory<Bread> bread = new BakeryProductFactory<>(bread_elements);
+        BakeryProductCRUD<Bread> bread = new BakeryProductCRUD<>(bread_elements);
         bread_elements = breadList(bread_elements);
 
         // Cake
         ArrayList<Cake> cake_elements = new ArrayList<>();
-        BakeryProductFactory<Cake> cake = new BakeryProductFactory<>(cake_elements);
+        BakeryProductCRUD<Cake> cake = new BakeryProductCRUD<>(cake_elements);
         cake_elements = cakeList(cake_elements);
 
         // Coffee
         ArrayList<Coffee> coffee_elements = new ArrayList<>();
-        BakeryProductFactory<Coffee> coffee = new BakeryProductFactory<>(coffee_elements);
+        BakeryProductCRUD<Coffee> coffee = new BakeryProductCRUD<>(coffee_elements);
         coffee_elements = coffeeList(coffee_elements);
 
         boolean loggedIn = false;

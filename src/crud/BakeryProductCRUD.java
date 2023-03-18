@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package factory;
+package crud;
 
 import core.Bread;
 import core.Cake;
 import core.Coffee;
 import java.util.ArrayList;
 
-public class BakeryProductFactory<Product> implements ProductFactory<Product> {
+public class BakeryProductCRUD<Product> implements ProductCRUD<Product> {
     private ArrayList<Product> elements;
 
     
-    public BakeryProductFactory (ArrayList<Product> elements){
+    public BakeryProductCRUD (ArrayList<Product> elements){
         this.elements=elements;
     }
 
