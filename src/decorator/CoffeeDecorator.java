@@ -17,8 +17,6 @@ public class CoffeeDecorator extends ProductDecorator {
     @Override
     public String toString() {
         return super.toString() + 
-                "\t" + 
-                " " + flavor + 
-                "    |  ";
+                String.format("%-10s|", flavor);
     }
 }

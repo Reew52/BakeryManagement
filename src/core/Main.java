@@ -20,17 +20,17 @@ public class Main {
     public static void main(String[] args) {
         //Bread
         ArrayList<Bread> bread_elements = new ArrayList<>();
-        BakeryProductCRUD<Bread> bread = new BakeryProductCRUD<>(bread_elements);
+        BakeryProductCRUD<Bread> bread = BakeryProductCRUD.<Bread>getInstance(bread_elements);
         bread_elements = breadList(bread_elements);
 
         // Cake
         ArrayList<Cake> cake_elements = new ArrayList<>();
-        BakeryProductCRUD<Cake> cake = new BakeryProductCRUD<>(cake_elements);
+        BakeryProductCRUD<Cake> cake = BakeryProductCRUD.<Cake>getInstance(cake_elements);
         cake_elements = cakeList(cake_elements);
 
         // Coffee
         ArrayList<Coffee> coffee_elements = new ArrayList<>();
-        BakeryProductCRUD<Coffee> coffee = new BakeryProductCRUD<>(coffee_elements);
+        BakeryProductCRUD<Coffee> coffee = BakeryProductCRUD.<Coffee>getInstance(coffee_elements);
         coffee_elements = coffeeList(coffee_elements);
 
         boolean loggedIn = false;
@@ -93,11 +93,11 @@ public class Main {
                                                             System.out.print("Shape : ");
                                                             String newShape = sc.next();
                                                             BreadDecorator decoratedBread = new BreadDecorator(obj, newShape); // create new BreadDecorator object with new shape information
-                                                            System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
-                                                            System.out.println("|   ID   |         Name            |   Price    |     Type      |   Weight   |    Shape   |");
-                                                            System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
+                                                            System.out.println("+-------+---------------------------+--------+------------+---------+----------+");
+                                                            System.out.println("|  ID   |            Name           | Price  |    Type    | Weight  |  Shape   |");
+                                                            System.out.println("+-------+---------------------------+--------+------------+---------+----------+");
                                                             System.out.println(decoratedBread.toString());
-                                                            System.out.println("+--------+-------------------------+------------+---------------+------------+------------+");
+                                                            System.out.println("+-------+---------------------------+--------+------------+---------+----------+");
                                                         }
                                                         System.out.println("Add new Bread successful");
                                                         break;
@@ -134,11 +134,11 @@ public class Main {
                                                         cake.createProduct(obj);
                                                         if (frostCake.equalsIgnoreCase("Y")) {
                                                             CakeDecorator decoratedCake = new CakeDecorator(obj, true); // create a new CakeDecorator object with icing information true
-                                                            System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
-                                                            System.out.println("|   ID   |         Name          |     Price     |      Flavor      |    Size    |    Frost    |");
-                                                            System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
+                                                            System.out.println("+-------+---------------------------+--------+--------------+----------+-------+");
+                                                            System.out.println("|  ID   |            Name           | Price  |    Flavor    |   Size   | Frost |");
+                                                            System.out.println("+-------+---------------------------+--------+--------------+----------+-------+");
                                                             System.out.println(decoratedCake.toString());
-                                                            System.out.println("+--------+-----------------------+---------------+------------------+------------+-------------+");
+                                                            System.out.println("+-------+---------------------------+--------+--------------+----------+-------+");
                                                         }
                                                         System.out.println("Add new Cake successfull");
                                                         break;
@@ -159,7 +159,7 @@ public class Main {
                                                     if (bread.findByIdOrName(newId) != null) {
                                                         System.out.println("Error: Coffee with ID " + newId + " already exists. Please enter a different ID.");
                                                     } else {
-                                                        // if the ID is unique, break out of the loop and continue with the rest of the code                                                      XZ
+                                                        // if the ID is unique, break out of the loop and continue with the rest of the code         
                                                         System.out.print("Name : ");
                                                         String newName = sc.nextLine();
                                                         System.out.print("Price : ");
@@ -177,11 +177,11 @@ public class Main {
                                                             System.out.print("What flavor do you want to add? : ");
                                                             String flavor = sc.next();
                                                             CoffeeDecorator decoratedCoffee = new CoffeeDecorator(obj, flavor); // create a new CoffeeDecorator object with the user's chosen flavor
-                                                            System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
-                                                            System.out.println("|   ID    |             Name             |     Price    |   Roast Type  |   Weight   |   Flavor   |");
-                                                            System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
+                                                            System.out.println("+-------+---------------------------+--------+------------+---------+----------+");
+                                                            System.out.println("|  ID   |            Name           | Price  | Roast Type |  Volume |  Flavor  |");
+                                                            System.out.println("+-------+---------------------------+--------+------------+---------+----------+");
                                                             System.out.println(decoratedCoffee.toString());
-                                                            System.out.println("+---------+------------------------------+--------------+---------------+------------+------------+");
+                                                            System.out.println("+-------+---------------------------+--------+------------+---------+----------+");
                                                         }
                                                         System.out.println("Add new Coffee successfull");
                                                         break;
@@ -220,11 +220,11 @@ public class Main {
                                                     return;
                                                 }
                                                 System.out.println("Information about the bread you are update :");
-                                                System.out.println("+--------+-------------------------+------------+---------------+------------+");
-                                                System.out.println("|   ID   |         Name            |   Price    |     Type      |   Weight   |");
-                                                System.out.println("+--------+-------------------------+------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
+                                                System.out.println("|  ID   |            Name           | Price  |    Type    | Weight  |");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                 System.out.println(breadToUpdate.toString()); // display product information
-                                                System.out.println("+--------+-------------------------+------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                 System.out.print("Enter a new Name for bread (press Enter if you don't want to change it): ");
                                                 String newName = sc.nextLine();
                                                 if (!newName.isEmpty()) {
@@ -251,11 +251,11 @@ public class Main {
                                                 // Update product information
                                                 bread.editProduct(breadToUpdate);
                                                 System.out.println("You have successfully updated bread information: ");
-                                                System.out.println("+--------+-------------------------+------------+---------------+------------+");
-                                                System.out.println("|   ID   |         Name            |   Price    |     Type      |   Weight   |");
-                                                System.out.println("+--------+-------------------------+------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
+                                                System.out.println("|   ID  |            Name           | Price  |    Type    | Weight  |");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                 System.out.println(breadToUpdate.toString()); // display product information
-                                                System.out.println("+--------+-------------------------+------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
 
                                             } catch (Exception e) {
                                                 System.out.println("Error:" + e.getMessage());
@@ -273,11 +273,11 @@ public class Main {
                                                     return;
                                                 }
                                                 System.out.println("Information about the cake you are update :");
-                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+");
-                                                System.out.println("|   ID   |         Name          |     Price     |      Flavor      |    Size    |");
-                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+--------------+----------+");
+                                                System.out.println("|  ID   |            Name           | Price  |    Flavor    |   Size   |");
+                                                System.out.println("+-------+---------------------------+--------+--------------+----------+");
                                                 System.out.println(cakeToUpdate.toString()); // display product information
-                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+--------------+----------+");
                                                 System.out.print("Enter a new Name for cake (press Enter if you don't want to change it): ");
                                                 String newName = sc.nextLine();
                                                 if (!newName.isEmpty()) {
@@ -303,11 +303,11 @@ public class Main {
                                                 // Update product information
                                                 cake.editProduct(cakeToUpdate);
                                                 System.out.println("You have successfully updated cake information: ");
-                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+");
-                                                System.out.println("|   ID   |         Name          |     Price     |      Flavor      |    Size    |");
-                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+--------------+----------+");
+                                                System.out.println("|  ID   |            Name           | Price  |    Flavor    |   Size   |");
+                                                System.out.println("+-------+---------------------------+--------+--------------+----------+");
                                                 System.out.println(cakeToUpdate.toString()); // display product information
-                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+--------------+----------+");
 
                                             } catch (Exception e) {
                                                 System.out.println("Error:" + e.getMessage());
@@ -325,11 +325,11 @@ public class Main {
                                                     return;
                                                 }
                                                 System.out.println("Information about the coffee you are update :");
-                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+");
-                                                System.out.println("|   ID    |             Name             |     Price    |   Roast Type  |   Weight   |");
-                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
+                                                System.out.println("|  ID   |            Name           | Price  | Roast Type |  Volume |");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                 System.out.println(coffeeToUpdate.toString()); // display product information
-                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                 System.out.print("Enter a new Name for coffee (press Enter if you don't want to change it): ");
                                                 String newName = sc.nextLine();
                                                 if (!newName.isEmpty()) {
@@ -356,11 +356,11 @@ public class Main {
                                                 // Update product information
                                                 coffee.editProduct(coffeeToUpdate);
                                                 System.out.println("You have successfully updated coffee information: ");
-                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+");
-                                                System.out.println("|   ID    |             Name             |     Price    |   Roast Type  |   Weight   |");
-                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
+                                                System.out.println("|  ID   |            Name           | Price  | Roast Type |  Volume |");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                 System.out.println(coffeeToUpdate.toString()); // display product information
-                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
 
                                             } catch (Exception e) {
                                                 System.out.println("Error:" + e.getMessage());
@@ -394,11 +394,11 @@ public class Main {
                                                     System.out.println("Not exist the bread");
                                                 } else {
                                                     System.out.println("Information Bread performs deletion: ");
-                                                    System.out.println("+--------+-------------------------+------------+---------------+------------+");
-                                                    System.out.println("|   ID   |         Name            |   Price    |     Type      |   Weight   |");
-                                                    System.out.println("+--------+-------------------------+------------+---------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
+                                                    System.out.println("|  ID   |            Name           | Price  |    Type    | Weight  |");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                     System.out.println(breadToDelete.toString()); // display this product information
-                                                    System.out.println("+--------+-------------------------+------------+---------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                     // Ask for confirmation before deleting
                                                     System.out.print("Are you sure you want to delete this bread? (Y/N): ");
                                                     String confirmation = sc.next();
@@ -424,11 +424,11 @@ public class Main {
                                                     System.out.println("Not exist the cake");
                                                 } else {
                                                     System.out.println("Information Cake performs deletion: ");
-                                                    System.out.println("+--------+-----------------------+---------------+------------------+------------+");
-                                                    System.out.println("|   ID   |         Name          |     Price     |      Flavor      |    Size    |");
-                                                    System.out.println("+--------+-----------------------+---------------+------------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+--------------+----------+");
+                                                    System.out.println("|  ID   |            Name           | Price  |    Flavor    |   Size   |");
+                                                    System.out.println("+-------+---------------------------+--------+--------------+----------+");
                                                     System.out.println(cakeToDelete.toString()); // display this product information
-                                                    System.out.println("+--------+-----------------------+---------------+------------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+--------------+----------+");
                                                     // Ask for confirmation before deleting
                                                     System.out.print("Are you sure you want to delete this cake? (Y/N): ");
                                                     String confirmation = sc.next();
@@ -454,11 +454,11 @@ public class Main {
                                                     System.out.println("Not exist the coffee");
                                                 } else {
                                                     System.out.println("Information Coffee performs deletion: ");
-                                                    System.out.println("+---------+------------------------------+--------------+---------------+------------+");
-                                                    System.out.println("|   ID    |             Name             |     Price    |   Roast Type  |   Weight   |");
-                                                    System.out.println("+---------+------------------------------+--------------+---------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
+                                                    System.out.println("|  ID   |            Name           | Price  | Roast Type |  Volume |");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                     System.out.println(coffeeToDelete.toString()); // display this product information
-                                                    System.out.println("+---------+------------------------------+--------------+---------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                     // Ask for confirmation before deleting
                                                     System.out.print("Are you sure you want to delete this coffee? (Y/N): ");
                                                     String confirmation = sc.next();
@@ -498,11 +498,11 @@ public class Main {
                                                 Bread breadToSearch = bread.findByIdOrName(idOrName);
                                                 if (breadToSearch != null) {
                                                     System.out.println("Found product: ");
-                                                    System.out.println("+--------+-------------------------+------------+---------------+------------+");
-                                                    System.out.println("|   ID   |         Name            |   Price    |     Type      |   Weight   |");
-                                                    System.out.println("+--------+-------------------------+------------+---------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
+                                                    System.out.println("|  ID   |            Name           | Price  |    Type    | Weight  |");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                     System.out.println(breadToSearch);
-                                                    System.out.println("+--------+-------------------------+------------+---------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                 } else {
                                                     System.out.println("Bread not found");
                                                 }
@@ -518,11 +518,11 @@ public class Main {
                                                 Cake cakeToSearch = cake.findByIdOrName(idOrName);
                                                 if (cakeToSearch != null) {
                                                     System.out.println("Found product: ");
-                                                    System.out.println("+--------+-----------------------+---------------+------------------+------------+");
-                                                    System.out.println("|   ID   |         Name          |     Price     |      Flavor      |    Size    |");
-                                                    System.out.println("+--------+-----------------------+---------------+------------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+--------------+----------+");
+                                                    System.out.println("|  ID   |            Name           | Price  |    Flavor    |   Size   |");
+                                                    System.out.println("+-------+---------------------------+--------+--------------+----------+");
                                                     System.out.println(cakeToSearch);
-                                                    System.out.println("+--------+-----------------------+---------------+------------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+--------------+----------+");
                                                 } else {
                                                     System.out.println("Cake not found");
                                                 }
@@ -538,11 +538,11 @@ public class Main {
                                                 Coffee coffeeToSearch = coffee.findByIdOrName(idOrName);
                                                 if (coffeeToSearch != null) {
                                                     System.out.println("Found product: ");
-                                                    System.out.println("+---------+------------------------------+--------------+---------------+------------+");
-                                                    System.out.println("|   ID    |             Name             |     Price    |   Roast Type  |   Weight   |");
-                                                    System.out.println("+---------+------------------------------+--------------+---------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
+                                                    System.out.println("|  ID   |            Name           | Price  | Roast Type |  Volume |");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                     System.out.println(coffeeToSearch);
-                                                    System.out.println("+---------+------------------------------+--------------+---------------+------------+");
+                                                    System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                 } else {
                                                     System.out.println("Coffee not found");
                                                 }
@@ -571,13 +571,13 @@ public class Main {
                                 try {
                                                 System.out.println("Display All Bread: ");
                                                 ArrayList<Bread> allBread = bread.getAll(bread_elements);
-                                                System.out.println("+--------+-------------------------+------------+---------------+------------+");
-                                                System.out.println("|   ID   |         Name            |   Price    |     Type      |   Weight   |");
-                                                System.out.println("+--------+-------------------------+------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
+                                                System.out.println("|  ID   |            Name           | Price  |    Type    | Weight  |");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                 for (int i = 0; i < allBread.size(); i++) {
                                                     System.out.println(allBread.get(i).toString());
                                                 }
-                                                System.out.println("+--------+-------------------------+------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
                                             } catch (Exception e) {
                                                 System.out.println("Error:" + e.getMessage());
                                             }
@@ -588,13 +588,13 @@ public class Main {
                                 try {
                                                 System.out.println("Display All Cake: ");
                                                 ArrayList<Cake> allCake = cake.getAll(cake_elements);
-                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+");
-                                                System.out.println("|   ID   |         Name          |     Price     |      Flavor      |    Size    |");
-                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+--------------+----------+");
+                                                System.out.println("|  ID   |            Name           | Price  |    Flavor    |   Size   |");
+                                                System.out.println("+-------+---------------------------+--------+--------------+----------+");
                                                 for (int i = 0; i < allCake.size(); i++) {
                                                     System.out.println(allCake.get(i).toString());
                                                 }
-                                                System.out.println("+--------+-----------------------+---------------+------------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+--------------+----------+");
                                             } catch (Exception e) {
                                                 System.out.println("Error:" + e.getMessage());
                                             }
@@ -603,13 +603,13 @@ public class Main {
                                 try {
                                                 System.out.println("Display All Coffee: ");
                                                 ArrayList<Coffee> allCoffee = coffee.getAll(coffee_elements);
-                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+");
-                                                System.out.println("|   ID    |             Name             |     Price    |   Roast Type  |   Weight   |");
-                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
+                                                System.out.println("|  ID   |            Name           | Price  | Roast Type |  Volume |");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
                                                 for (int i = 0; i < allCoffee.size(); i++) {
                                                     System.out.println(allCoffee.get(i).toString());
                                                 }
-                                                System.out.println("+---------+------------------------------+--------------+---------------+------------+");
+                                                System.out.println("+-------+---------------------------+--------+------------+---------+");
                                             } catch (Exception e) {
                                                 System.out.println("Error:" + e.getMessage());
                                             }

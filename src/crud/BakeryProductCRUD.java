@@ -11,10 +11,17 @@ import java.util.ArrayList;
 
 public class BakeryProductCRUD<Product> implements IProductCRUD<Product> {
     private ArrayList<Product> elements;
+    private static BakeryProductCRUD<?> instance = null;
 
-    
     public BakeryProductCRUD (ArrayList<Product> elements){
         this.elements=elements;
+    }
+    
+    public static <Product> BakeryProductCRUD<Product> getInstance(ArrayList<Product> elements) {
+        if (instance == null) {
+            instance = new BakeryProductCRUD<>(elements);
+        }
+        return (BakeryProductCRUD<Product>) instance;
     }
 
     @Override

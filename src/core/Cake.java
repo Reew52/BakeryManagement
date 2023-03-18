@@ -32,10 +32,9 @@ public class Cake extends Product {
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\t " + "     "+ flavor + 
-                "\t" + "        "+ size + 
-                "    |";
+        return super.toString()
+                + String.format("%-14s| %-8s |",
+                        flavor, size);
     }
 }
 

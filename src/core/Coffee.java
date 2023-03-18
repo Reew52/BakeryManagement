@@ -39,9 +39,8 @@ public class Coffee extends Product implements IDrink {
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\t " + "     "+ roastType + 
-                "\t " + "    "+ volume + 
-                "    |";
+        return super.toString()
+                + String.format("%-12s| %-7s |",
+                        roastType, volume);
     }  
 }

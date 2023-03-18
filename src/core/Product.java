@@ -49,8 +49,8 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return "|  "+id + 
-                "  |  " + name + 
-                "\t\t" + price;
+        return String.format("|%-7s| %-25s | %-6s |", 
+        id, name, price);
     }
+    
 }

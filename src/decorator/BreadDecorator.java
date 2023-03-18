@@ -17,8 +17,6 @@ public class BreadDecorator extends ProductDecorator {
     @Override
     public String toString() {
         return super.toString() + 
-                "\t" + 
-                "  " + shape + 
-                " | ";
+                String.format("%-10s|", shape);
     }
 }

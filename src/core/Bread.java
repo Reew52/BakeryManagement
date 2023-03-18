@@ -32,9 +32,8 @@ public class Bread extends Product {
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\t " + "     "+ type + 
-                "\t " + "    "+ weight + 
-                "    |";
+        return super.toString()
+                + String.format("%-12s| %-7s |",
+                        type, weight);
     }
 }

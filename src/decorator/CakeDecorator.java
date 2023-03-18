@@ -16,9 +16,7 @@ public class CakeDecorator extends ProductDecorator {
 
     @Override
     public String toString() {
-        return super.toString() +
-                "\t" + 
-                isFrosted +
-                "   | ";
+        return super.toString() + 
+                String.format("%-7s|", isFrosted);
     }
 }
