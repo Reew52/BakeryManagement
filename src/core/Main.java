@@ -87,12 +87,15 @@ public class Main {
                                                         //decorator
                                                         System.out.print("Do you want to add shape? (Y/N) : ");
                                                         String addShape = sc.next(); // ask the customer to enter Y/N to confirm whether they want to add shape information
+                                                        // Create a new Bread object
                                                         Bread obj = new Bread(newId, newName, newType, newWeight, newPrice);
+                                                        // Add new products to the list
                                                         bread.createProduct(obj);
                                                         if (addShape.equalsIgnoreCase("Y")) {
                                                             System.out.print("Shape : ");
                                                             String newShape = sc.next();
-                                                            BreadDecorator decoratedBread = new BreadDecorator(obj, newShape); // create new BreadDecorator object with new shape information
+                                                            // create new BreadDecorator object with new shape information
+                                                            BreadDecorator decoratedBread = new BreadDecorator(obj, newShape);
                                                             System.out.println("+-------+---------------------------+--------+------------+---------+----------+");
                                                             System.out.println("|  ID   |            Name           | Price  |    Type    | Weight  |  Shape   |");
                                                             System.out.println("+-------+---------------------------+--------+------------+---------+----------+");
