@@ -4,8 +4,6 @@
  */
 package crud;
 
-import java.util.ArrayList;
-
 public interface IProductCRUD<Product> {
     void createProduct(Product element);
     void editProduct(Product element);
