@@ -57,6 +57,7 @@ public class Main {
                         loggedIn = true;
                         int option;
                         do {
+                            sc = new Scanner(System.in);
                             option = printMenu();
                             switch (option) {
                                 // function add 
@@ -80,6 +81,7 @@ public class Main {
                                                 break;
                                             default:
                                                 System.out.println("Invaild Choice");
+                                                break;
                                         }
                                     } while (option2 != 4);
                                     break;
@@ -228,9 +230,14 @@ public class Main {
         System.out.println("|     6. Exit                                     |");
         System.out.println("|                                                 |");
         System.out.println("+-------------------------------------------------+");
-
-        int option = sc.nextInt();
-        sc.nextLine();
+        int option = 0;
+        try {
+            option = sc.nextInt();
+            sc.nextLine();
+            
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
         return option;
     }
 
@@ -248,8 +255,14 @@ public class Main {
         System.out.println("│                                       │");
         System.out.println("╰────────────────────────╯");
 
-        int option = sc.nextInt();
-        sc.nextLine();
+        int option = 0;
+        try {
+            option = sc.nextInt();
+            sc.nextLine();
+            
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
         return option;
     }
 
@@ -267,8 +280,14 @@ public class Main {
         System.out.println("│                                     │");
         System.out.println("╰───────────────────────╯");
 
-        int option = sc.nextInt();
-        sc.nextLine();
+        int option = 0;
+        try {
+            option = sc.nextInt();
+            sc.nextLine();
+            
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
         return option;
     }
 
@@ -286,8 +305,14 @@ public class Main {
         System.out.println("│     4. Exit                         │");
         System.out.println("│                                     │");
         System.out.println("╰───────────────────────╯");
-        int option = sc.nextInt();
-        sc.nextLine();
+        int option = 0;
+        try {
+            option = sc.nextInt();
+            sc.nextLine();
+            
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
         return option;
     }
 
@@ -305,8 +330,14 @@ public class Main {
         System.out.println("│     4. Exit                         │");
         System.out.println("│                                     │");
         System.out.println("╰───────────────────────╯");
-        int option = sc.nextInt();
-        sc.nextLine();
+        int option = 0;
+        try {
+            option = sc.nextInt();
+            sc.nextLine();
+            
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
         return option;
     }
 
@@ -323,8 +354,14 @@ public class Main {
         System.out.println("│     4. Exit                         │");
         System.out.println("│                                     │");
         System.out.println("╰───────────────────────╯");
-        int option = sc.nextInt();
-        sc.nextLine();
+        int option = 0;
+        try {
+            option = sc.nextInt();
+            sc.nextLine();
+            
+        } catch (Exception e) {
+            System.out.println("Error:" + e.getMessage());
+        }
         return option;
     }
 
